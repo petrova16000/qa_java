@@ -17,24 +17,18 @@ public class LionDoesHaveManeTest {
     }
 
     @Test
-    public void doesHaveMane() {
-        try {
-            Feline feline = new Feline();
+    public void doesHaveManeReturnBool() throws Exception {
+         Feline feline = new Feline();
             Lion lion = new Lion(sex, feline);
             Boolean actual = lion.doesHaveMane();
-            Assert.assertEquals("Метод вернул не корректное значение", expected, actual);
-        }
-        catch (Exception exception){
-            System.out.println(exception);
-        }
+            Assert.assertEquals(expected, actual);
     }
 
     @Parameterized.Parameters
     public static Object[] getTestData() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false},
-                {"q", false}
+                {"Самка", false}
         };
     }
 }
